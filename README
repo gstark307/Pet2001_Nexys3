@@ -1,0 +1,37 @@
+
+	pet2001fpga
+	-----------
+
+October, 2011.
+
+A Commodore PET in a Spartan-6 FPGA.
+
+This is a Xilinx ISE Project targeted for a Digilent Nexys3 Development
+board.  Opening up Pet2001.xise should do the trick.
+
+A pre-built bit file with rev 2 ROMs is included here (pet2001.bit).  I
+download the design to the board over the "Adept USB port" using the
+djtgcfg utility (I'm running Linux):
+
+   djtgcfg prog -d Nexys3 -i 0 -f pet2001.bit
+
+See rtl/Pet2001_Nexys3.v for I/O assignments.  Until I can solve problems
+with the Nexys3 "USB HID" interface, the keyboard needs to be wired into
+PMOD connector PA.  Note that PS/2 keyboards need 5v+ power (vcc on the PMOD
+connectors is 3.3v).  I got it off jumper JP1 located close by.
+
+The key mappings are a bit odd and could be improved.  Mostly, you type
+as you would on a PS/2 keyboard, not a PET keyboard.  The ALT key becomes
+the PET's shift key so you can access graphics.  F1 is the STOP key.  The
+Menu key is the RVS key.  Only down and right are mapped so alt-down is
+up and alt-right is left.  Yeah, this needs work.
+
+The cassette interface is not well documented because I want to replace it
+with something that doesn't require soldering a wire on the Nexys3 board
+(I've wired the FT232's CTS# signal to a PMOD connector for flow-control).
+
+See http://www.stepinfusion.com/projects/pet2001fpga/ for more information.
+
+--Thomas
+
+E-mail:  thomas@stepinfusion.com

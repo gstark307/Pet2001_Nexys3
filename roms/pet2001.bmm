@@ -1,0 +1,48 @@
+/*
+ * pet2001.bmm
+ */
+
+/* RAM Space.  This address space is not normally used but is here in
+ * case you want to initialize RAM with something other than zeroes.
+ * Might be useful for testing or simulation.
+ */
+ADDRESS_SPACE pet2001ram RAMB16 [0x0000:0x3fff]
+   BUS_BLOCK
+      pet_top/hw/ram/bit[7].ram [7];
+      pet_top/hw/ram/bit[6].ram [6];
+      pet_top/hw/ram/bit[5].ram [5];
+      pet_top/hw/ram/bit[4].ram [4];
+      pet_top/hw/ram/bit[3].ram [3];
+      pet_top/hw/ram/bit[2].ram [2];
+      pet_top/hw/ram/bit[1].ram [1];
+      pet_top/hw/ram/bit[0].ram [0];
+   END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+/* Video RAM Space.  This address space is not normally used but is here in
+ * case you want to initialize it with something other than zeroes.
+ * Might be useful for testing or simulation.
+ */
+ADDRESS_SPACE pet2001vidram RAMB16 [0x8000:0x87ff]
+   BUS_BLOCK
+      pet_top/hw/vidram/ram [7:0];
+   END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
+/* ROM Space.  This address includes the character ROM in region 0xe800:0xefff.
+ * It is not visible to the processor because that region is I/O space.  But,
+ * character ROM data is read from the BRAM second ports by the video circuit.
+ */
+ADDRESS_SPACE pet2001rom RAMB16 [0xc000:0xffff]
+   BUS_BLOCK
+      pet_top/hw/rom/bits[7].rom [7];
+      pet_top/hw/rom/bits[6].rom [6];
+      pet_top/hw/rom/bits[5].rom [5];
+      pet_top/hw/rom/bits[4].rom [4];
+      pet_top/hw/rom/bits[3].rom [3];
+      pet_top/hw/rom/bits[2].rom [2];
+      pet_top/hw/rom/bits[1].rom [1];
+      pet_top/hw/rom/bits[0].rom [0];
+   END_BUS_BLOCK;
+END_ADDRESS_SPACE;
+
