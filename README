@@ -30,8 +30,8 @@ The cassette interface is not well documented because I want to replace it
 with something that doesn't require soldering a wire on the Nexys3 board
 (I've wired the FT232's CTS# signal to a PMOD connector for flow-control).
 
-See http://www.stepinfusion.com/projects/pet2001fpga/ for more information.
+See http://www.thomasskibo.com/projects/pet2001fpga/ for more information.
 
 --Thomas
 
-E-mail:  thomas@stepinfusion.com
+E-mail:  thomasskibo@sbcglobal.net
